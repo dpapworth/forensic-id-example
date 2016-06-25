@@ -1,8 +1,12 @@
 package controllers;
 
+import org.slf4j.MDC;
+import play.Logger;
 import play.mvc.*;
 
 import views.html.*;
+
+import java.util.UUID;
 
 /**
  * This controller contains an action to handle HTTP requests
@@ -17,6 +21,10 @@ public class HomeController extends Controller {
      * <code>GET</code> request with a path of <code>/</code>.
      */
     public Result index() {
+        MDC.put("forensic-id", UUID.randomUUID().toString());
+
+        Logger.info("Serving index page");
+
         return ok(index.render("Your new application is ready."));
     }
 
