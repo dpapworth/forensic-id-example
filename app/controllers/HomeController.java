@@ -28,19 +28,14 @@ public class HomeController extends Controller {
      * this method will be called when the application receives a
      * <code>GET</code> request with a path of <code>/</code>.
      */
+    @With(ForensicAction.class)
     public CompletionStage<Result> index() {
-        MDC.put("forensic-id", UUID.randomUUID().toString());
+        Logger.info("Serving index page");
 
-        try {
-            Logger.info("Serving index page");
-
-            return supplyAsync(() -> {
-                Logger.info("Generating response");
-                return "Your new application is ready.";
-            }, ec.current()).thenApply(message -> ok(index.render(message)));
-        } finally {
-            MDC.remove("forensic-id");
-        }
+        return supplyAsync(() -> {
+            Logger.info("Generating response");
+            return "Your new application is ready.";
+        }, ec.current()).thenApply(message -> ok(index.render(message)));
     }
 
 }
