@@ -4,6 +4,8 @@ import org.slf4j.MDC
 import scala.concurrent.{ExecutionContextExecutor, ExecutionContext}
 
 /**
+  * Adapted from http://yanns.github.io/blog/2014/05/04/slf4j-mapped-diagnostic-context-mdc-with-play-framework/
+  *
   * slf4j provides a MDC [[http://logback.qos.ch/manual/mdc.html Mapped Diagnostic Context]]
   * based on a [[ThreadLocal]]. In an asynchronous environment, the callbacks can be called
   * in another thread, where the local thread variable does not exist anymore.

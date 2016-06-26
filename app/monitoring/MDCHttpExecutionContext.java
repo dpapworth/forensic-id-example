@@ -6,6 +6,9 @@ import javax.inject.Inject;
 import javax.inject.Singleton;
 import java.util.concurrent.Executor;
 
+/**
+ * Adapted from http://yanns.github.io/blog/2014/05/04/slf4j-mapped-diagnostic-context-mdc-with-play-framework/
+ */
 @Singleton
 public class MDCHttpExecutionContext {
 
