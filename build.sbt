@@ -9,5 +9,7 @@ scalaVersion := "2.11.7"
 libraryDependencies ++= Seq(
   javaJdbc,
   cache,
-  javaWs
+  javaWs,
+
+  "org.hamcrest" % "hamcrest-library" % "1.3" % "test"
 )
